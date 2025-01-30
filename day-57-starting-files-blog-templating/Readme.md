@@ -8,6 +8,11 @@ This is a simple Flask-based blog application that fetches blog posts from an ex
 - Allows users to view full content of a selected blog post.
 - Uses Flask for backend routing.
 - Uses HTML and CSS for frontend design.
+## How the Project Works
+The application follows the Model-View-Controller (MVC) pattern:
+Model (post.py): Defines the Post class structure.
+View (templates/): HTML files render the blog data to the user.
+Controller (main.py): Manages application logic and routing.
 
 ## Tech Stack
 - **Backend:** Flask (Python)
