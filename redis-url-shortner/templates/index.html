@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Shortener</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="text-center">URL Shortener</h1>
+
+        <!-- Input field for long URL -->
+        <form>
+            <input type="text" id="long_url" name="long_url" placeholder="Enter long URL">
+            <a id="shorten-link" href="#">Shorten</a>
+        </form>
+
+        <!-- Display the generated short URL -->
+        {% if short_url %}
+            <p><strong>Short URL:</strong> <a href="{{ short_url }}" target="_blank">{{ short_url }}</a></p>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById("shorten-link").addEventListener("click", function(event) {
+            event.preventDefault();
+            var longUrl = document.getElementById("long_url").value;
+            if (longUrl) {
+                window.location.href = "/shorten/" + encodeURIComponent(longUrl);
+            } else {
+                alert("Please enter a valid URL.");
+            }
+        });
+    </script>
+</body>
+</html>
