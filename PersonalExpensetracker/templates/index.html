@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Expense Tracker</h1>
+    <form action="/add" method="POST">
+        <input type="text" name="title" placeholder="Expense Title" required>
+        <input type="number" name="amount" placeholder="Amount" required>
+        <input type="text" name="category" placeholder="Category" required>
+        <button type="submit">Add Expense</button>
+    </form>
+    <ul>
+        {% for expense in expenses %}
+            <li>{{ expense.title }} - ${{ expense.amount }} ({{ expense.category }})
+                <a href="/delete/{{ expense.id }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
