@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Upload</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f8fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .upload-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        .upload-box {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 30px;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .upload-box:hover {
+            border-color: #4a90e2;
+        }
+
+        .upload-box i {
+            font-size: 40px;
+            color: #4a90e2;
+        }
+
+        .upload-box p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        #file-chosen {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .upload-btn {
+            margin-top: 20px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background-color: #357ABD;
+        }
+    </style>
+</head>
+<body>
+
+<div class="upload-container">
+    <form id="uploadForm" action="{{ url_for('upload_resume') }}" method="post" enctype="multipart/form-data">
+        <div class="upload-box">
+            <i class="fa-solid fa-rocket" onclick="document.getElementById('fileInput').click();"></i>
+            <p onclick="document.getElementById('fileInput').click();">
+                <strong>Choose a file</strong> or drag it here
+            </p>
+        </div>
+
+        <input type="file" name="file" id="fileInput" onchange="updateFileName()" required>
+
+        <p id="file-chosen">No file chosen</p>
+
+        <button class="upload-btn" type="submit" onclick="return validateForm()">Upload</button>
+    </form>
+</div>
+
+<script>
+    function updateFileName() {
+        const input = document.getElementById('fileInput');
+        const fileName = input.files.length > 0 ? input.files[0].name : "No file chosen";
+        document.getElementById('file-chosen').textContent = fileName;
+    }
+
+    function validateForm() {
+        const input = document.getElementById('fileInput');
+        if (input.files.length === 0) {
+            alert("Please choose a file before uploading.");
+            return false;  // Prevent submission
+        }
+        return true;
+    }
+</script>
+
+</body>
+</html>

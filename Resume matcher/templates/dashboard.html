@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Match Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9fafc;
+      color: #2c3e50;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+    }
+
+    .card h2, .card h3 {
+      margin-top: 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e1f5fe;
+      color: #0277bd;
+      padding: 6px 12px;
+      margin: 4px 6px 4px 0;
+      border-radius: 50px;
+      font-size: 13px;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 10px;
+      text-decoration: none;
+      color: #0277bd;
+    }
+
+    .btn-download {
+      background: #0277bd;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      float: right;
+    }
+
+    .btn-download:hover {
+      background: #015a8d;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    table th, table td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    table th {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Resume Matching Report</h1>
+  <p><strong>Name:</strong> Harsha Vardhan Reddy Ginjala</p>
+  <p><strong>Email:</strong> <a href="mailto:harsha.v.ginjala@gmail.com">harsha.v.ginjala@gmail.com</a></p>
+  <div class="links">
+    <a href="https://github.com/iamginjala" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    <a href="https://www.linkedin.com/in/harsha-vardhan-reddy-ginjala-a6a026146/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+  </div>
+
+  <div class="card">
+    <h2>🌟 Professional Summary</h2>
+    <p>{{ summary }}</p>
+  </div>
+
+  <div class="card">
+    <h2>📚 Transferable Skills</h2>
+    <table>
+      <thead>
+        <tr><th>Skill</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        {% for skill, example in transferable_skills.items() %}
+          <tr><td>{{ skill }}</td><td>{{ example }}</td></tr>
+        {% else %}<tr><td colspan="2">No transferable skills found.</td></tr>{% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>🛠️ Skills</h2>
+    <h3>✅ Matched Skills</h3>
+    {% for skill in skills.matched %}<span class="badge">{{ skill }}</span>{% endfor %}
+
+    <h3>➕ Willing to Learn</h3>
+    {% for skill in skills.missing %}<span class="badge">{{ skill }}</span>{% endfor %}
+
+    <h3>📄 Resume Skills</h3>
+    {% for skill in skills.from_resume %}<span class="badge">{{ skill }}</span>{% endfor %}
+
+    <h3>📘 JD Skills</h3>
+    {% for skill in skills.from_jd %}<span class="badge">{{ skill }}</span>{% endfor %}
+  </div>
+
+  <div class="card">
+    <h2>💼 Projects / Strengths</h2>
+    <ul>
+      <li><strong>project_summary:</strong>Built a resume-job matching system that automatically parses resumes and job descriptions, extracts relevant skills, matches them, and presents an analytics dashboard. Solves the real-world problem of inefficient resume screening by mimicking ATS behavior using NLP and PDF parsing.",</li>
+      <li><strong>Resume Matcher Tool:</strong> Built with Flask, pdfminer.six, spaCy, fuzzywuzzy, and Jinja2. Parses resumes, compares with JD, highlights matches and gaps, and creates a dashboard with PDF export.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>⏱️ Experience</h2>
+    <p><strong>Total Experience:</strong>{{ experience.years }}</p>
+    <p><strong>Inferred Level:</strong>Mid junior</p>
+  </div>
+
+  <button class="btn-download" onclick="window.print()">📄 Download PDF</button>
+</div>
+</body>
+</html>
+

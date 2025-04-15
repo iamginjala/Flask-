@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>job description</title>
+</head>
+<body>
+<p> <label for="jd">paste job description</label> </p>
+<form action="{{ url_for('process_jd')}}" method="post">
+<textarea id="jd" name="story" rows="40" cols="150">
+
+</textarea>
+
+       <p> <input type="submit" value="Submit"> </p>
+</form>
+
+</body>
+</html>
