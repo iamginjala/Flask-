@@ -13,15 +13,13 @@ An intelligent resume and job description matcher built using Flask, spaCy, and 
 - **Dashboard Generation**: Displays the results in a clean, responsive dashboard (HTML + CSS).
 - **PDF Download**: Exports the dashboard as a printable/downloadable PDF for use as a modern resume alternative.
 
-## Tech Stack
+## 🧰 Tech Stack
 
-- Python
-- Flask
-- pdfplumber
-- spaCy
-- fuzzywuzzy
-- HTML/CSS (Jinja2)
-- JavaScript (PDF export via print mode)
+![Python](https://img.shields.io/badge/Python-3.9-blue)
+![Flask](https://img.shields.io/badge/Flask-WebApp-lightgrey)
+![spaCy](https://img.shields.io/badge/NLP-spaCy-orange)
+![Bootstrap](https://img.shields.io/badge/Frontend-Bootstrap-blueviolet)
+
 
 ## How It Works
 
