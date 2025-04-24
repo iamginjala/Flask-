@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<h2>Edit Rating for "{{ book.title }}"</h2>
+<form method="POST">
+  <label for="rating">New Rating:</label>
+  <input type="number" step="0.5" name="rating" id="rating" required>
+  <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
