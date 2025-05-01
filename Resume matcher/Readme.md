@@ -1,6 +1,6 @@
 # Resume Match Dashboard
 
-An intelligent resume and job description matcher built using Flask, spaCy, and PDFMiner. This project parses a user's resume and compares it with a pasted job description to highlight matching skills, inferred experience levels, transferable skills, and missing keywords — all within a clean, downloadable dashboard.
+An intelligent resume and job description matcher built using Flask, spaCy, Ollama Mistral, and PDFPlumber. This project parses a user's resume and compares it with a pasted job description to highlight matching skills, inferred experience levels, transferable skills, and missing keywords — all within a clean, downloadable dashboard.
 
 ## Features
 
