@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Choose your role</h2>
+<form method="POST" action="/verify_doctor">
+    {{ form.hidden_tag() }}
+    {{ form.doctor_id.label }} {{ form.doctor_id(class="form-control") }}
+    {{ form.submit(class="btn btn-success mt-2") }}
+</form>
+<div class="mt-4">
+    <a href="/patient_dashboard" class="btn btn-info">Continue as Patient</a>
+</div>
+{% endblock %}
